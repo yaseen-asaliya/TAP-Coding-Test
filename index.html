@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+  <style>
+    :root {
+  --primary-color: #D1884F;
+  --secondary-color: #008AAA;
+  --tertiary-color: #3BBADB;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins';
+      color: black;
+      display: flex;
+      justify-content: center;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 20px;
+      margin: 10px 200px ;
+      display: flex;
+      justify-content: center;
+      width: 30%;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      margin: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    nav a.active {
+      color: var(--primary-color);
+    }
+
+    .logo {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    main {
+      margin-top: 30px;
+    }
+
+    .content-box {
+      margin: 20px 50px 50px 50px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      margin: 120px 50px 120px 50px;
+      width: 350px; 
+      position: relative; 
+      border-radius: 0 0 0 0; 
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 5px; 
+      left: -10px; 
+      width: 90%;
+      height: 100%; 
+      border-bottom-left-radius: 100px;
+      border-top-right-radius: 100px; 
+      z-index: -1; 
+      background-color: var(--tertiary-color);
+      transform: rotate(-3deg);
+
+    }
+
+    .card img {
+      width: 110%;
+      display: block;
+      border-bottom-left-radius: 100px;
+    }
+
+
+    .welcome-text {
+      text-align: left;
+    }
+
+    .intro {
+      font-size: 250%;
+      color: var(--secondary-color);
+    }
+
+
+    .engineer {
+      color: var(--primary-color);
+    }
+
+    .welcome-msg {
+      color: var(--tertiary-color);
+    }
+
+    .read-more {
+      color: var(--tertiary-color);
+      cursor: pointer;
+    }
+
+    #about-me p {
+      overflow: hidden;
+      max-height: 5em;
+      line-height: 1.5em;
+      position: relative;
+    }
+
+    #hiddenText {
+      display: none;
+    }
+
+    #seeMoreCheckbox {
+      display: none;
+    }
+
+    #seeMoreCheckbox:checked + #about-me p {
+      max-height: none;
+    }
+
+    #seeMoreCheckbox:checked + #about-me #readMoreLabel {
+      display: none;
+    }
+
+    #seeMoreCheckbox:checked + #about-me #hiddenText {
+      display: block;
+    }
+
+    #seeMoreCheckbox:checked + #about-me #hiddenText #readLessLabel {
+      display: inline;
+    }
+
+    .read-less {
+      display: none;
+      cursor: pointer;
+      color: var(--tertiary-color);
+    }
+
+    .read-less:hover {
+      text-decoration: underline;
+    }
+
+    .buttons {
+      margin-top: 15%;
+      text-align: center; 
+    }
+
+    .buttons button {
+      display: inline-block;
+      margin-right: 20px;
+      padding: 10px 20px;
+      background-color: var(--secondary-color);
+      color: white;
+      cursor: pointer;
+      width: 45%;
+      border-radius: 10px; 
+      font-size: larger;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    }
+
+    #hire-me {
+      border: none;
+    }
+
+    #see-my-project {
+      background-color: white;
+      color: var(--secondary-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+      border-color: var(--secondary-color);
+      border-width: 2px;
+    }
+
+
+    @media only screen and (max-width: 767px) {
+      header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 20px 50px 20px 20px;
+        display: flex;
+        justify-content: center;
+        width: 30%;
+      }
+      
+      nav {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      nav a {
+        margin: 10px 10px 10px 30px;
+      }
+
+      main {
+        margin-top: 80px; 
+      }
+
+      .content-box {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        margin: 80px; 
+      }
+
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 20px 50px 20px 20px;
+        display: flex;
+        justify-content: center;
+        width: 30%;
+      }
+
+      nav {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      nav a {
+        margin: 10px 10px 10px 30px;
+      }
+
+      main {
+        margin-top: 80px; 
+      }
+
+      .content-box {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        margin: 80px; 
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#home" class="active">
+        <img src="src/home-logo.png" alt="Home" class="logo"> Home </a>
+      <a href="#about">
+        <img src="src/about-logo.png" alt="About Me" class="logo"> About Me </a>
+      <a href="#contact">
+        <img src="src/contact-logo.png" alt="Contact Me" class="logo"> Contact Me </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="content-box">
+      <section class="welcome-text">
+        <p class="welcome-msg">Welcome to my site</p>
+        <h1 class="intro">Hi, I'm Yaseen, a <br> Software <span class="engineer">Engineer.</span></h1>
+        <input type="checkbox" id="seeMoreCheckbox">
+        <article id="about-me">
+          <p>
+            I'm a highly motivated B.Sc. Software Engineering <br> graduate, 
+            who completed studies at An-Najah National <br>
+            University, IT and Engineering Department.  
+            <label for="seeMoreCheckbox" class="read-more" id="readMoreLabel">See more...</label>
+          </p>
+          <p id="hiddenText">
+            I possess a robust background in backend development <br> 
+            and DevOps engineering, backed by practical experience <br> 
+            gained through internships and real-world projects in <br> both roles.
+            <label for="seeMoreCheckbox" class="read-less" id="readLessLabel">See less</label>
+          </p>
+        </article>
+        <section class="buttons">
+          <button id="hire-me">Hire me !</button>
+          <button id="see-my-project">See My Project</button>
+        </section>
+      </section>
+      <section class="card">
+        <img src="https://scontent.fjrs26-1.fna.fbcdn.net/v/t39.30808-6/405070501_3680287988918120_2032480429997862633_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=83oADpZRtU4AX_CdaY0&_nc_oc=AQkfz5eKLUwrZnKVW-hAWYzlxXm9HZr_i-H8h80_Ge2hoswBRj0NdVc7DXx6_bxtbMo&_nc_ht=scontent.fjrs26-1.fna&oh=00_AfAf4akFu-vN59W-lrfTRSAEEOA0Kml6elLsSAnd50fVDw&oe=65A957F3" alt="Personal Image">
+      </section>
+    </section>
+  </main>
+
+</body>
+</html>
